@@ -3,8 +3,8 @@
     <div class="header">
       <div style="padding-top: 20px; color: white;">
         <p style="width:200px;margin: 30px 0 20px 150px; font-size: 64px">LibEpidemic</p>
-        <p style="width:1000px;margin: 0px 0 20px 150px; font-size: 32px">
-          A unified, comprehensive and extensible library for traffic prediction.
+        <p style="width:1500px;margin: 0px 0 20px 150px; font-size: 32px">
+          A unified, comprehensive and extensible library for epidemic modeling.
         </p>
         <div class="btn-list">
           <a-button
@@ -25,7 +25,7 @@
             type="primary"
             shape="round"
             @click="toPaper()"
-          >Paper</a-button>
+          >Project</a-button>
           <a-button
             class="btn"
             id="btn"
@@ -37,23 +37,15 @@
       </div>
     </div>
     <div class="main">
-      <div style="min-height: 340px">
+      <div style="min-height: 400px">
         <feat-card class="feature"></feat-card>
       </div>
       <div class="video">
         <div class="video-header">
           <span class="block-title">VIDEO</span>
         </div>
-        <a-button-group class="lang-btn-group">
-          <a-button id="english-btn" class="lang-btn" type="primary" disabled @click="changeVideoLang()">
-            English Version
-          </a-button>
-          <a-button id="chinese-btn" class="lang-btn" type="primary" @click="changeVideoLang()">
-            Chinese Version
-          </a-button>
-        </a-button-group>
         <video-player class="video-player vjs-custom-skin" ref="videoPlayer" :playsline="false" :options="playerOptions"></video-player>
-        <div class="video-notes">* These statistics are updated to November 2021.</div>
+        <div class="video-notes">* These statistics are updated to May 2022.</div>
       </div>
       <!-- <div class="latestnews">
         <div class="news-header"><span class="news-block-title">LATEST NEWS</span>

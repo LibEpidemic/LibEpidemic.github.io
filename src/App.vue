@@ -32,7 +32,7 @@
               Get Started
               <a-icon type="down" />
             </span>
-            <a-menu slot="overlay" style="width: 130px">
+            <a-menu slot="overlay" style="width: 160px">
               <a-menu-item
                 @click="menuItemClick('InstallLibEpidemic')"
                 style="font-size: 16px; line-height: 24px"
@@ -51,10 +51,10 @@
 
         <a-menu-item
           key="3"
-          style="width: 55px; font-size: 20px; textalign: center"
+          style="width: 80px; font-size: 20px; textalign: center"
           @click="menuItemClick('Task')"
         >
-          Task
+          Model
         </a-menu-item>
 
         <a-menu-item
@@ -71,19 +71,19 @@
                 @click="menuItemClick('Data')"
                 style="font-size: 16px; line-height: 24px"
               >
-                <a href="javascript:;">Data</a>
+                <a href="javascript:;">Structure</a>
               </a-menu-item>
               <a-menu-item
                 @click="menuItemClick('Model')"
                 style="font-size: 16px; line-height: 24px"
               >
-                <a href="javascript:;">Model</a>
+                <a href="javascript:;">Parameter</a>
               </a-menu-item>
               <a-menu-item
                 @click="menuItemClick('Evaluation')"
                 style="font-size: 16px; line-height: 24px"
               >
-                <a href="javascript:;">Evaluation</a>
+                <a href="javascript:;">Execution</a>
               </a-menu-item>
             </a-menu>
           </a-dropdown>
@@ -99,7 +99,7 @@
           "
         >
           <a
-            href="https://readthedocs.org/projects/libepidemic-docs/"
+            href="https://libepidemic-docs.readthedocs.io/en/latest"
             target="_blank"
             >Document</a
           >
@@ -115,10 +115,10 @@
 
         <a-menu-item
           key="7"
-          style="width: 90px; font-size: 20px; textalign: center"
+          style="width: 60px; font-size: 20px; textalign: center"
           @click="menuItemClick('Ranking')"
         >
-          Ranking
+          NPI
         </a-menu-item>
 
         <a-menu-item
@@ -130,11 +130,19 @@
         </a-menu-item>
 
         <a-menu-item
-          key="11"
-          style="width: 65px; font-size: 20px; textalign: center"
-          @click="menuItemClick('Paper')"
+          key="5"
+          style="
+            width: 110px;
+            font-size: 20px;
+            textalign: center;
+            margin-left: 10px;
+          "
         >
-          Paper
+          <a
+            href="https://github.com/Bigscity-epidemic/Bigscity-epidemic-survey-paperlist"
+            target="_blank"
+            >Paperlist</a
+          >
         </a-menu-item>
 
         <a-menu-item
@@ -243,7 +251,7 @@
               <a-button class="footer-btn" type="link"
                 ><a
                   style="font-size: 16px"
-                  href="https://readthedocs.org/projects/libepidemic-docs/"
+                  href="https://libepidemic-docs.readthedocs.io/en/latest/"
                   target="_blank"
                   >Document</a
                 ></a-button

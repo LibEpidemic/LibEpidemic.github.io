@@ -12,17 +12,17 @@
       </a-col>
       <a-col :span="8">
         <div class="pcard">
-            <a-card title="Ranking" :bordered="true" style="border-radius: 5px">
-                <p style="margin-bottom: 0px; height: 120px">LibEpidemic tests existing models on different datasets and shows performances and rankings of these models for each dataset.</p>
+            <a-card title="NPI modeling" :bordered="true" style="border-radius: 5px">
+                <p style="margin-bottom: 0px; height: 120px">LibEpidemic use SEPIAR model and the deduction library to help you modeling NPI.</p>
                 <a-button style="padding-left: 180px; margin-top: 5px; font-size: 15px;" type="link" @click="toRanking">See More >></a-button>
             </a-card>
         </div>
       </a-col>
       <a-col :span="8">
         <div class="pcard">
-            <a-card title="Tutorial" :bordered="true" style="border-radius: 5px">
-                <p style="margin-bottom: 0px; height: 120px">This website provides a demonstration video for researchers to know the basic usage of LibEpidemic quickly.</p>
-                <a-button style="padding-left: 180px; margin-top: 5px; font-size: 15px;" type="link" @click="toTutorial">See More >></a-button>
+            <a-card title="Platform" :bordered="true" style="border-radius: 5px">
+                <p style="margin-bottom: 0px; height: 120px">This website provides the docs, introduction and examples of using LibEpidemic.</p>
+                <a-button style="padding-left: 180px; margin-top: 5px; font-size: 15px;" type="link"><a href="https://libepidemic-docs.readthedocs.io/en/latest" target="_blank">See More >></a></a-button>
             </a-card>
         </div>
       </a-col>

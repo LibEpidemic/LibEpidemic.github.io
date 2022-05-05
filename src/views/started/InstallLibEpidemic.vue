@@ -2,59 +2,26 @@
   <div class="container">
     <div class="header">
       <div style="padding-top: 20px;color: white;">
-        <p style="margin: 20px 0 30px 130px; font-size: 60px">Install LibCity</p>
+        <p style="margin: 20px 0 30px 130px; font-size: 60px">Install LibEpidemic</p>
         <p style="margin: 0px 0 20px 130px; font-size: 30px">
           <!-- LibCity can be installed with pip, with Conda or from source. -->
-          LibCity can be installed from source.
+          LibEpidemic can be installed from source.
         </p>
       </div>
     </div>
 
     <div class="content">
         <div>
-            <!-- <p class="title">System requirements</p>
-            <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-            <p>LibCity works with the following operating systems:</p>
-            <ul>
-                <li>Linux</li>
-                <li>Windows 10</li>
-                <li>macOS X</li>
-            </ul>
-            <p>LibCity requires torch version 1.7.0 or later. If you want to use LibCity with GPU, please ensure that please ensure that CUDA or CUDAToolkit version is 9.2 or later. This requires NVIDIA driver version >= 396.26 (for Linux) or >= 397.44 (for Windows10).</p>
-            <br> -->
-
-            <!-- <p class="title">Conda</p>
-            <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-            <p>If you use Conda, you can install LibCity with:</p>
-            <div class="code">
-                <code data-lang="bash">
-                    # Best practice, create an environment rather than install in the base env<br>
-                    conda create -n libcity<br>
-                    # Activate the environment<br>
-                    conda activate libcity<br>
-                    # The actual install command<br>
-                    conda install libcity
-                </code>
-            </div>
-            <br>
-
-            <p class="title">Pip</p>
-            <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-            <p>If you use pip, you can install LibCity with:</p>
-            <div class="code">
-                <code data-lang="bash">pip install libcity</code>
-            </div>
-            <br> -->
             
             <p class="title">Source</p>
             <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
             <!-- <p>Download the source files from GitHub:</p> -->
-            <p>LibCity can only be installed from source code.</p>
+            <p>LibEpidemic can only be installed from source code now. In the future, epidemiologist and professors can use no-code web-based platform for using LibEpidemic!</p>
             <p>Please execute the following command to get the source code.</p>
             <div class="code">
                 <code data-lang="bash">
-                    git clone https://github.com/LibCity/Bigscity-LibCity.git<br>
-                    cd Bigscity-LibCity
+                    git clone https://github.com/Bigscity-epidemic/Epidemic-Modeling-survey<br>
+                    cd Epidemic-Modeling-survey
                 </code>
             </div>
             <p>After obtaining the source code, you can configure the environment.</p>
@@ -62,26 +29,14 @@
 
             <p class="title">Requirements</p>
             <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-            <p>Our code is based on Python version 3.7 and Pytorch version 1.7.1. You can click <a href="https://pytorch.org/get-started/previous-versions/#v171" target="_blank">here</a> to see how to install Pytorch. For example, if your cuda vision is 10.2, you can install Pytorch with the following command.</p>
-            <p>Pip:</p>
-            <div class="code">
-                <code data-lang="bash">
-                    pip install torch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2
-                </code>
-            </div>
-            <p>Conda:</p>
-            <div class="code">
-                <code data-lang="bash">
-                    conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10.2 -c pytorch
-                </code>
-            </div>
-            <p>After installing Pytorch, you can install all the dependencies of LibCity with the following command by pip.</p>
+            <p>Our code is based on Python version 3.9. Most APIs have been tested to run in any version environment between python3.6-3.9.</p>
+            <p>After installing Python, you can install all the dependencies of LibEpidemic with the following command by pip.</p>
             <div class="code">
                 <code data-lang="bash">
                     pip install -r requirements.txt
                 </code>
             </div>
-            <p>Now, you can use LibCity, more details please refer to the section <a href="https://libcity.ai/#/quick_start">Quick Start</a>.</p>
+            <p>Now, you can use LibEpidemic, more details please refer to the <a href="https://libepidemic-docs.readthedocs.io/en/latest/Get%20Started/Installation.html">Installation Docs</a>.</p>
             <br>
         </div>
     </div>
