@@ -4,74 +4,84 @@
             <div style="padding-top: 20px;color: white;">
                 <p style="margin: 20px 0 30px 130px; font-size: 60px">Parameter</p>
                 <p style="margin: 0px 0 20px 130px; font-size: 30px">
-                    LibEpidemic supports 9 mainstream spatio-temporal data mining tasks <br> 
-                    and implements 60 commonly used intelligence algorithms.
+                    LibEpidemic provides 4 APIs for building the formula and parameters<br> 
+                    which can be seen at compartment/Transfer.py.
                 </p>
             </div>
         </div>
 
         <div class="content">
             <div>
-                <p class="title">Model List</p>
+                <div style="width: 80%; margin: 10px auto 20px auto; text-align: center">
+                    <img
+                    src="../../assets/img/param.png"
+                    alt="toolkit"
+                    height="300"
+                    />
+                </div>
+                <p class="title">Set Path Exp</p>
                 <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-                <p>Up to now, LibEpidemic supports 9 mainstream spatio-temporal data mining tasks:</p>
-                <ul>
-                    <li>Traffic Flow Prediction</li>
-                    <li>Traffic Speed Prediction</li>
-                    <li>On-Demand Service Prediction</li>
-                    <li>Origin-Destination Matrix Prediction</li>
-                    <li>Traffic Accidents Prediction</li>
-                    <li>Trajectory Next-Location Prediction</li>
-                    <li>Estimated Time of Arrival</li>
-                    <li>Map Matching</li>
-                    <li>Road Network Representation Learning</li>
-                </ul>
-                <p>Besides, LibEpidemic has already implemented 60 commonly used intelligence algorithms. We summary the models in the following tables: </p>
-
-                <a-divider style="font-size: 24px">Traffic Flow Prediction</a-divider>
-                <model-table :content="flow"></model-table>
+                <div class="code">
+                    <code data-lang="python">
+                        def set_path_exp(model: Model, pre_name: str, next_name: str, exp: str):
+                    </code>
+                </div>
+                <p>LibEpidemic provide set_path_exp to allow user define the principal with a simple string like "beta*S*I*popu" (popu = 1/N). Here are some examples:</p>
+                <div class="code">
+                    <code data-lang="python">
+                        set_path_exp(model, 'S', 'E', 'beta*S*I*popu')<br>
+                        set_path_exp(model, 'E', 'I', 'alpha*E')<br>
+                        set_path_exp(model, 'I', 'R', 'gamma*I')
+                    </code>
+                </div>
                 <br>
-
-                <a-divider style="font-size: 24px">Traffic Speed Prediction</a-divider>
-                <model-table :content="speed"></model-table>
-                <br>
-
-                <a-divider style="font-size: 24px">On-Demand Service Prediction</a-divider>
-                <model-table :content="demand"></model-table>
-                <br>
-
-                <a-divider style="font-size: 24px">Origin-Destination Matrix Prediction</a-divider>
-                <model-table :content="od"></model-table>
-                <br>
-
-                <a-divider style="font-size: 24px">Traffic Accidents Prediction</a-divider>
-                <model-table :content="accident"></model-table>
-                <br>
-
-                <a-divider style="font-size: 24px">Trajectory Next-Location Prediction</a-divider>
-                <model-table :content="location"></model-table>
-                <br>
-
-                <a-divider style="font-size: 24px">Estimated Time of Arrival</a-divider>
-                <model-table :content="eta"></model-table>
-                <br>
-
-                <a-divider style="font-size: 24px">Map Matching</a-divider>
-                <model-table :content="mm"></model-table>
-                <br>
-
-                <a-divider style="font-size: 24px">Road Network Representation Learning</a-divider>
-                <model-table :content="representation"></model-table>
-                <br>
-
-                <p class="title">Baselines</p>
+                <p class="title">Set Path Parameters</p>
                 <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-                <p>We have also implemented several baselines for different task:</p>
+                <div class="code">
+                    <code data-lang="python">
+                        def set_path_parameters(model: Model, pre_name: str, next_name: str, parameter_name: str, parameter: float = None, embedding: list = None):
+                    </code>
+                </div>
+                <p>LibEpidemic provide set_path_exp to allow user fill those parameters with exact figure. Here are some examples:</p>
+                <div class="code">
+                    <code data-lang="python">
+                        set_path_parameters(model, 'S', 'E', 'beta', embedding = [0.3,0.5,0.3,0.3,0.1])<br>
+                        set_path_parameters(model, 'S', 'E', 'popu', 1.0 / 1000000)<br>
+                        set_path_parameters(model, 'E', 'I', 'alpha', 0.14)<br>
+                        set_path_parameters(model, 'I', 'R', 'gamma', 0.2)
+                    </code>
+                </div>
+                <br>
+                <p class="title">Reset Parameters</p>
+                <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
+                <div class="code">
+                    <code data-lang="python">
+                        def reset_parameters(model: Model, parameter_name: str, parameter: float):
+                    </code>
+                </div>
+                <p>LibEpidemic provide reset_parameters to help researchers build this type of epidemic models:<br>
                 <ul>
-                    <li>For time series prediction: HA, VAR, SVR, ARIMA</li>
-                    <li>For traffic flow/speed/demand prediction: AutoEncoder, RNN(FC-RNN), Seq2Seq, FNN</li>
-                    <li>For trajectory next-location prediction: RNN</li>
+                    <li>Parameters are not static</li>
+                    <li>Parameters varies with time</li>
+                    <li>The exact figure of each parameter cannot be determined before simulation</li>
                 </ul>
+                That is, researchers need results from previously simulation of the model to determine the value of parameters afterwards.
+                </p>
+                <p>Here is an example: researcher use an index calculated by the number of death and infectious individuals called "awareness", to modify transmission parameter "beta" afterwards.</p>
+                <div class="code">
+                    <code data-lang="python">
+                        for index in range(days):<br>
+                            tmp_value = model.get_values()<br>
+                            Dday = gamma * tmp_value['I'] * frac_D<br>
+                            Iday = beta * tmp_value['S'] * tmp_value['I'] / (1 + (Dday / Dcrit) ** awareness)<br>
+                            Ddays.append(Dday*N)<br>
+                            Dq.append(N*Dcrit*(R0**(1/awareness)-1)*2)<br>
+                            Idays.append(Iday*N)<br>
+                            Iq.append(N*Dcrit*(R0**(1/awareness)-1)*2/frac_D)<br>
+                            print(reset_parameters(model, 'beta', beta / (1 + (Dday / Dcrit) ** awareness)))<br>
+                            executor.simulate_step(index)
+                    </code>
+                </div>
                 <br>
             </div>
         </div>
@@ -565,4 +575,18 @@
     font-family: 'Open Sans', 'Microsoft YaHei', Arial, Helvetica, sans-serif;
     margin-bottom: 0;
 }
+.code {
+    color: #f8f8f2;
+    background-color: #272822;
+    tab-size: 4;
+    overflow: auto;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 0px 0px 16px 0px;
+    text-align: left;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    line-height: 1.5;
+}
+
 </style>

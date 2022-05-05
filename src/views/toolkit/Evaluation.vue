@@ -4,53 +4,45 @@
             <div style="padding-top: 20px;color: white;">
                 <p style="margin: 20px 0 30px 130px; font-size: 60px">Execution</p>
                 <p style="margin: 0px 0 20px 130px; font-size: 30px">
-                    LibEpidemic incorporates extensive and standard evaluation metrics for <br> 
-                    testing and comparing intelligence algorithms of spatio-temporal data mining.
+                    Executor can use the model and all the methods of each class, <br>
+                    and use the expression analysis system to complete the simulation of the compartment model.
                 </p>
             </div>
         </div>
 
         <div class="content">
             <div>
-                <p class="title">Evaluation Metrics</p>
-                <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-
-                <p>Considering the different output formats of models for different tasks, the framework implements different evaluators for different tasks and supports a variety of mainstream evaluation methods. The evaluation methods supported by different tasks are given below.</p>
-
-                <table style="width: 900px">
-                    <thead style="font-size: 16px">
-                        <tr>
-                            <th width="50%">Task</th>
-                            <th width="50%">Supported Metrics</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Traffic Flow Prediction</td>
-                            <td>MAE、MSE、RMSE、MAPE、R2、EVAR</td>
-                        </tr>
-                        <tr>
-                            <td>Traffic Speed Prediction</td>
-                            <td>MAE、MSE、RMSE、MAPE、R2、EVAR</td>
-                        </tr>
-                        <tr>
-                            <td>On-Demand Service Predition</td>
-                            <td>MAE、MSE、RMSE、MAPE、R2、EVAR</td>
-                        </tr>
-                        <tr>
-                            <td>Trajectory Next-Location Prediction</td>
-                            <td>TopK</td>
-                        </tr>
-                        <tr>
-                            <td>Map Matching</td>
-                            <td>RMF、AN、AL</td>
-                        </tr>
-                        <tr>
-                            <td>Estimated Time of Arrival</td>
-                            <td>MAE、MSE、RMSE、MAPE、R2、EVAR</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div style="width: 80%; margin: 10px auto 20px auto; text-align: center">
+                    <img
+                    src="../../assets/img/exe.png"
+                    alt="toolkit"
+                    height="350"
+                    />
+                </div>
+                <p>Executor has 2 functions:
+                    <ul>
+                        <li>parse the expression like the string 'beta*S*I*popu'.</li>
+                        <li>calculate the expression to simulate the model.</li>
+                    </ul>
+                </p>
+                <p>Executing the SEIR model can be done with only 2 APIs, without programming the principles of infectious disease dynamics models, and without manually writing complex model extensions. In fact, executing steps is the same to every model, not only SEIR.
+                    <ul>
+                        <li>Use init_compartment to set the init value of each compartment.</li>
+                        <li>Use simulate_step to finish all parsing and calculating.</li>
+                    </ul>
+                </p>
+                <div class="code">
+                    <code data-lang="python">
+                        init_value = {'S': 9995, 'E': 2, 'I': 3, 'R': 0}<br>
+                        init_compartment(model, init_value)<br>
+                        executor = Executor(model)<br>
+                        for index in range(5):<br>
+                            executor.simulate_step(index)<br>
+                            print('_______________________________________')<br>
+                            print('day {}'.format(index + 1))<br>
+                            visual_compartment_values(model)
+                    </code>
+                </div>
                 <br>
             </div>
         </div>
@@ -97,6 +89,20 @@
     font-family: 'Open Sans', 'Microsoft YaHei', Arial, Helvetica, sans-serif;
     margin-bottom: 0;
 }
+.code {
+    color: #f8f8f2;
+    background-color: #272822;
+    tab-size: 4;
+    overflow: auto;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 0px 0px 16px 0px;
+    text-align: left;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    line-height: 1.5;
+}
+
 table {
     color: rgba(0, 0, 0, 0.65);
     font-size: 14px;

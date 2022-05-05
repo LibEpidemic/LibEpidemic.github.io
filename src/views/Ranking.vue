@@ -10,6 +10,7 @@
     </div>
 
     <div class="content">
+    <div>
       <p class="title">Modeling NPI</p>
         <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
         <p>Epidemiologists are very concerned about the process by which infectious diseases spread. In the era of COVID-19 outbreak, the SEPIAR mechanism can completely describe the transmission process. With the subdivided extension, the modeling of most scenes can be completed.</p>
@@ -109,6 +110,7 @@
         </div>
         <p>LibEpidemic use these structure and formula to construct SEPIAR model, then use no-code setting file to help user deduct NPI.</p>
         <br>
+    </div>
     </div>
   </div>
 </template>
@@ -260,4 +262,24 @@ export default {
   font-family: "Open Sans", "Microsoft YaHei", Arial, Helvetica, sans-serif;
   margin-bottom: 0;
 }
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'Open Sans', 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+    margin-bottom: 0;
+}
+.code {
+    color: #f8f8f2;
+    background-color: #272822;
+    tab-size: 4;
+    overflow: auto;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 0px 0px 16px 0px;
+    text-align: left;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    line-height: 1.5;
+}
+
 </style>
