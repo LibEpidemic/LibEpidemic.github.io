@@ -18,7 +18,7 @@
 
             <p class="title">Contact Us</p>
             <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-            <p>The LibEpidemic is mainly developed and maintained by Beihang Interest Group on SmartCity (<a href="https://www.bigcity.ai/" target="_blank">BIGSCITY</a>). The core developers of this library are <a href="https://github.com/aptx1231" target="_blank">@aptx1231</a> and <a href="https://github.com/WenMellors" target="_blank">@WenMellors</a>.</p>
+            <p>The LibEpidemic is mainly developed and maintained by Beihang Interest Group on SmartCity (<a href="https://www.bigcity.ai/" target="_blank">BIGSCITY</a>). The core developers of this library is <a href="https://github.com/shh2000" target="_blank">@shh2000</a>.</p>
             <br>
             
             <!-- <p class="title">Contributing</p>
