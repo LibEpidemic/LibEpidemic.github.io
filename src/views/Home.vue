@@ -28,11 +28,11 @@
           >Project</a-button>
           <a-button
             class="btn"
-            id="btn"
+            id="long_btn"
             type="primary"
             shape="round"
-            @click="toTutorial()"
-          >Tutorial</a-button>
+            @click="toRanking()"
+          >Applications</a-button>
         </div>
       </div>
     </div>
@@ -171,6 +171,11 @@ export default {
     toTutorial() {
       this.$router.push({
         name: "Tutorial",
+      });
+    },
+    toRanking() {
+      this.$router.push({
+        name: "Ranking",
       });
     },
     toNews() {

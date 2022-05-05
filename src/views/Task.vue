@@ -2,91 +2,81 @@
   <div class="container">
     <div class="header">
       <div style="padding-top: 20px;color: white;">
-        <p style="margin: 20px 0 30px 130px; font-size: 60px">Task</p>
+        <p style="margin: 20px 0 30px 130px; font-size: 60px">Model</p>
         <p style="margin: 0px 0 20px 130px; font-size: 30px">
-          LibEpidemic has implemented a set of standard tracks for each supported <br>
-          spatio-temporal data mining task to improve comparability of models.
+          LibEpidemic has 3 types of models <br>
+          with preset structure, parameter and several applications.
         </p>
       </div>
     </div>
 
     <div class="content">
-      <p class="title">Standard Track</p>
+      <p class="title">Basic Model</p>
       <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-      <p>LibEpidemic has implemented a set of standard tracks for each task. On the standard track, the original data set, standard data module (Data module), and standard evaluation module (Evaluator module) provided by LibEpidemic are used to constrain different models to use the same data input and evaluation indicators to improve the comparability of evaluation results.</p>
-      <p>The standard data input format and evaluation input format for different tasks are explained below:</p>
+      <p>LibEpidemic provides 5 SEIR-class model, with Multi-stage and Dynamic-parameters strategy. LibEpidemic also provides no-code "one-fits-all" policy to help epidemiologists:</p>
       <br>
-      <p class="sectitle">Traffic State Prediction</p>
+      <p class="sectitle">SEIR-class Model</p>
       <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-      <p>According to the different spatial structure of traffic data, traffic state data can generally be represented by tensors in the following formats:</p>
+      <p>5 SEIR-class model are preset in LibEpidemic:</p>
       <ul>
-        <li>A three-dimensional tensor shaped like <code style="color: #e83e8c; font-size: 90%">(N,T,F)</code>, <code style="color: #e83e8c; font-size: 90%">T</code> is the length of time, <code style="color: #e83e8c; font-size: 90%">F</code> is the feature dimension, and <code style="color: #e83e8c; font-size: 90%">N</code> is the number of sensors.</li>
-        <li>A four-dimensional tensor shaped like <code style="color: #e83e8c; font-size: 90%">(T,F,I,J)</code>, <code style="color: #e83e8c; font-size: 90%">T</code> is the length of time, <code style="color: #e83e8c; font-size: 90%">F</code> is the feature dimension, and <code style="color: #e83e8c; font-size: 90%">I,J</code> represents the row and column index of the grid data.</li>
-        <li>A four-dimensional tensor shaped like <code style="color: #e83e8c; font-size: 90%">(T,F,S,T)</code>, <code style="color: #e83e8c; font-size: 90%">T</code> is the length of time, <code style="color: #e83e8c; font-size: 90%">F</code> is the feature dimension, and <code style="color: #e83e8c; font-size: 90%">S,T</code> represents the id of the origin and destination of the <code style="color: #e83e8c; font-size: 90%">od</code> data.</li>
-        <li>A six-dimensional tensor shaped like <code style="color: #e83e8c; font-size: 90%">(T,F,SI,SJ,TI,TJ)</code>, <code style="color: #e83e8c; font-size: 90%">T</code> is the length of time, <code style="color: #e83e8c; font-size: 90%">F</code> is the feature dimension, <code style="color: #e83e8c; font-size: 90%">(SI,SJ,TI,TJ)</code> represents the row and column index of the origin and destination of the <code style="color: #e83e8c; font-size: 90%">grid-od</code> data.</li>
+        <li>SIR</li>
+        <li>SEIR</li>
+        <li>SIR with natural birth/death</li>
+        <li>SEIR with natural birth/death</li>
+        <li>SEPIR</li>
       </ul>
-      <ul>
-        <li><code style="color: #e83e8c; font-size: 90%">X</code>: The multi-dimensional tensor input by the model, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, T_in, space_dim, feature_dim)</code>, each dimension represents the total number of samples in the batch, the width of the input time window, the spatial dimension, and the data feature dimension. In particular, the spatial dimension can be <code style="color: #e83e8c; font-size: 90%">N</code> or <code style="color: #e83e8c; font-size: 90%">I,J</code> or <code style="color: #e83e8c; font-size: 90%">S,T</code> or <code style="color: #e83e8c; font-size: 90%">SI, SJ, TI, TJ</code> as mentioned above.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">y</code>: The multi-dimensional tensor that the model expects to output, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, T_out, space_dim, feature_dim)</code>, each dimension represents the total number of samples in the batch, the width of the output time window, the spatial dimension, and the data feature dimension. Among them, the spatial dimension can be <code style="color: #e83e8c; font-size: 90%">N</code> or <code style="color: #e83e8c; font-size: 90%">I,J</code> or <code style="color: #e83e8c; font-size: 90%">S,T</code> or <code style="color: #e83e8c; font-size: 90%">SI, SJ, TI, TJ</code>  as mentioned above.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">X_ext</code>: Optional external data, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, T_in, ext_dim)</code>, each dimension represents the total number of samples in the batch, the width of the input time window, and the feature dimension of the external data. <strong>In particular, some models may directly incorporate <code style="color: #e83e8c; font-size: 90%">X_ext</code> into <code style="color: #e83e8c; font-size: 90%">X</code> as the input of the model.</strong></li>
-        <li><code style="color: #e83e8c; font-size: 90%">y_ext</code>: Optional external data, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, T_out, ext_dim)</code>, each dimension represents the total number of samples in the batch, the width of the output time window, and the feature dimension of the external data.</li>
-      </ul>
-      <p>The standard evaluation input format is a dictionary object, and the dictionary has the following key names:</p>
-      <ul>
-        <li><code style="color: #e83e8c; font-size: 90%">y_true</code>: The ground-truth value, the format is the same as the <code style="color: #e83e8c; font-size: 90%">y</code> in the input.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">y_pred</code>: The prediction value, the format is the same as the <code style="color: #e83e8c; font-size: 90%">y</code> in the input.</li>
-      </ul>
+      <p>They come from textbooks or cups for early COVID-19 predictions.</p>
+      <p>Users can view and modify the code of these basic models, fill in any parameter settings, complete the model simulation, and view the results.</p>
       <br>
-
-      <p class="sectitle">Trajectory Next-Location Prediction</p>
-      <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-      <ul>
-        <li><code style="color: #e83e8c; font-size: 90%">history_loc</code>: Historical trajectory location information, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, history_len)</code>, <code style="color: #e83e8c; font-size: 90%">history_len</code> is the length of the historical trajectory.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">history_tim</code>: Historical trajectory time information, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, history_len)</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">current_loc</code>: Current trajectory location information, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, current_len)</code>, <code style="color: #e83e8c; font-size: 90%">current_len</code> is the length of the current trajectory.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">current_tim</code>: Current trajectory time information, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, current_len)</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">uid</code>: The ID of the user for each trajectory, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size)</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">target</code>: Expected next hop location, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size)</code>.</li>
-      </ul>
-      <p>The standard evaluation input format is a dictionary object, and the dictionary has the following key names:</p>
-      <ul>
-        <li><code style="color: #e83e8c; font-size: 90%">uid</code>: The id of the user for each trajectory, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size)</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">loc_true</code>: Expected next hop location, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size)</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">loc_pred</code>: Model prediction output, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, output_dim)</code>.</li>
-      </ul>
+      <p class="sectitle">Multi-stage and Dynamic-parameters Model</p>
+      <p>Every models in LibEpidemic can use multi-stage or dynamic-parameters strategy.</p>
+      <div style="width: 80%; margin: 10px auto 20px auto; text-align: center">
+        <img
+          src="../assets/img/multi.png"
+          alt="toolkit"
+          height="300"
+        />
+      </div>
+      <p>Dynamic-parameters means only the parameters can change with time, not the structure.</p>
+      <br>
+      <p class="sectitle">One-fits-all Model</p>
+      <p>Considering that the inputs to the underlying SEIR model are similar, LibEpidemic provide Mixed-strategy Model to Epidemiologists . The mixed-strategy model is used with the multi-stage method, and the optimal model in the model library is automatically selected through the given loss function in each stage.</p>
+      <div style="width: 80%; margin: 10px auto 20px auto; text-align: center">
+        <img
+          src="../assets/img/select.png"
+          alt="toolkit"
+          height="300"
+        />
+      </div>
+      <p>Mixed-strategy models can be used to build a "one fits all model“. Using this model, combined with multi-stage global predictions (tests), the total error is less than or equal to any single model.</p>
       <br>
 
-      <p class="sectitle">Map Matching</p>
+      <p class="title">NPI Model</p>
       <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-      <p>The standard data input format is a dictionary. The key names of this object are as follows:</p>
-      <ul>
-        <li><code style="color: #e83e8c; font-size: 90%">trajectory</code>: The format of <code style="color: #e83e8c; font-size: 90%">trajectory</code> can be denoted as <code style="color: #e83e8c; font-size: 90%">{"usr_id":{"traj_id":{numpy.ndarray}}}</code>. That is to say, the key of <code style="color: #e83e8c; font-size: 90%">trajectory</code> is <code style="color: #e83e8c; font-size: 90%">usr_id</code>. Each <code style="color: #e83e8c; font-size: 90%">usr_id</code> has a dictionary, the key of which is <code style="color: #e83e8c; font-size: 90%">traj_id</code>. For each <code style="color: #e83e8c; font-size: 90%">traj_id</code>, there’s a <code style="color: #e83e8c; font-size: 90%">numpy.ndarray</code>, representing a sequence of chronologically ordered spatial points sampled from a continuously moving object, with <code style="color: #e83e8c; font-size: 90%">columns=(index,longitude,latitude,time)</code> or <code style="color: #e83e8c; font-size: 90%">columns=(index,longitude,latitude)</code>. The length of trajectory is noted as <code style="color: #e83e8c; font-size: 90%">num_sample</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">rd_nwk</code>: A road network with type <code style="color: #e83e8c; font-size: 90%">networkx.classes.digraph.DiGraph</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">route</code>: The format of <code style="color: #e83e8c; font-size: 90%">route</code> can be denoted as <code style="color: #e83e8c; font-size: 90%">{"usr_id":{"traj_id":{numpy.ndarray}}}</code>. It is similar to <code style="color: #e83e8c; font-size: 90%">trajectory</code>. The value of <code style="color: #e83e8c; font-size: 90%">route</code> is a <code style="color: #e83e8c; font-size: 90%">numpy.ndarray</code> of <code style="color: #e83e8c; font-size: 90%">geo_id</code> with <code style="color: #e83e8c; font-size: 90%">shape=(num_road,)</code>, representing ground truth. <code style="color: #e83e8c; font-size: 90%">num_road</code> is the length of real route.</li>
-      </ul>
-      <p>The standard evaluation input format is a dictionary object, and the dictionary has the following key names:</p>
-      <ul>
-        <li><code style="color: #e83e8c; font-size: 90%">result</code>: The format of <code style="color: #e83e8c; font-size: 90%">result</code> is almost the same as that of <code style="color: #e83e8c; font-size: 90%">route</code> in standard data input. The value of <code style="color: #e83e8c; font-size: 90%">result</code> is a <code style="color: #e83e8c; font-size: 90%">numpy.ndarray</code> of <code style="color: #e83e8c; font-size: 90%">geo_id</code> with <code style="color: #e83e8c; font-size: 90%">shape=(num_sample,)</code>, representing matching result. <code style="color: #e83e8c; font-size: 90%">num_sample</code> is the number of GPS samples in the trajectory.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">route</code>: As depicted in standard data input.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">rd_nwk</code>: As depicted in standard data input.</li>
-      </ul>
+      
+      <p class="sectitle">Modeling NPI</p>
+        <p>Epidemiologists are very concerned about the process by which infectious diseases spread. In the era of COVID-19 outbreak, the SEPIAR mechanism can completely describe the transmission process. With the subdivided extension, the modeling of most scenes can be completed.</p>
+        <p>Based on this model, epidemiologists can: * Introduce a subdivided model to model any factors that may affect the spread of the epidemic, such as age, income, country, population mobility, etc. * Review or deduce the effects of arbitrary policies(More than 20 categories in total, covering the vast majority of specific policies for all countries) by writing code-free configuration files.</p>
+        <ul>
+          <li>social control policy</li>
+          <li>Case handling policy</li>
+          <li>vaccine policy</li>
+        </ul>
+        <p>Obtain the model's review(history) or deduction(future) results for the epidemic without using code.</p>
+        <br>
+
+      <p class="sectitle">NPI Deduction</p>
+        <p>LibEpidemic use SEPIAR model and the deduction library to help you modeling NPI. The deduction library consists of several items, each of which contains a policy, a 0/1 flag, several data and several parameters. Among them, the policy is described by a natural language string, and the 0/1 mark indicates whether the policy participates in the deduction. The data includes the settings of the policy itself and other data that need to affect the parameters. The parameters are the parameters corresponding to this deduction item.</p>
+        <p>For example, the policy of “deduce the effect of vaccines” has a 0/1 mark. The data are divided into 4 categories: VEI (infection protection rate), VES (symptomatic protection rate), correction of vaccination shots, and vaccination coverage. The first two categories are the settings of the policy itself, usually constants or epidemiological characteristic numbers, and the last two categories are other data affecting parameters. The parameters corresponding to this deduction item are β(S->E) and trans_PA(P->A).</p>
+
       <br>
 
-      <p class="sectitle">Estimated Time of Arrival</p>
+      <p class="title">Complex Paper Model</p>
       <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-      <ul>
-        <li><code style="color: #e83e8c; font-size: 90%">current_loc/(current_longi, current_lati)</code>: Trajectory location information, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, traj_len)</code>, <code style="color: #e83e8c; font-size: 90%">traj_len</code> is the length of the trajectory.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">uid</code>: The id of the user for each trajectory, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size)</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">timeid(weekid)</code>: Time information when the trajectory starts, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size)</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">dist</code>: The total distance of the trajectory, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size)</code>.</li>
-        <li>Other information, such as <code style="color: #e83e8c; font-size: 90%">current_dis</code> (the distance from starting point to current point, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, traj_len)</code>), <code style="color: #e83e8c; font-size: 90%">current_state</code> (the current taxi state is available or unavailable, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size, traj_len)</code>). (Optional)</li>
-      </ul>
-      <p>The standard evaluation input format is a dictionary object, and the dictionary has the following key names:</p>
-      <ul>
-        <li><code style="color: #e83e8c; font-size: 90%">y_true</code>: The real travel time from starting point to finishing point, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size)</code>.</li>
-        <li><code style="color: #e83e8c; font-size: 90%">y_pred</code>: The predicted travel time from starting point to finishing point, <code style="color: #e83e8c; font-size: 90%">shape = (batch_size)</code>.</li>
-      </ul>
+      <p>LibEpidemic provides 5 complex models from Papers to guide user simplify their research work with the support of LibEpidemic.</p>
       <br>
+
+      
     </div>
   </div>
 </template>

@@ -18,8 +18,8 @@
             <p>To use LibEpidemic to build a model, first initialize a directory under examples/ by using following commands:</p>
             <div class="code">
                 <code data-lang="bash">
-                    cd Epidemic-Modeling-survey
-                    cd examples
+                    cd Epidemic-Modeling-survey<br>
+                    cd examples<br>
                     mkdir LibEpidemicTest
                 </code>
             </div>
@@ -32,8 +32,8 @@
             <p>If you only need to experience the most basic functions, such as building a basic SEIR model to familiarize yourself with the usage of LibEpidemic, you can also simply create a single file with the following command:</p>
             <div class="code">
                 <code data-lang="bash">
-                    cd Epidemic-Modeling-survey
-                    cd examples
+                    cd Epidemic-Modeling-survey<br>
+                    cd examples<br>
                     touch test.py
                 </code>
             </div>
@@ -45,12 +45,12 @@
             <p>First make sure you have successfully installed the environment dependencies in requirements, then enter the following command in test.py:</p>
             <div class="code">
                 <code data-lang="python">
-                  from compartment.Graph import Graph
-                  from compartment.Model import Model
-                  from executor.Executor import Executor
-                  from compartment.Descriptor import vertical_divide
-                  from compartment.Transfer import init_compartment, set_path_exp, set_path_parameters
-                  from visual.visual_graph import visual_model
+                  from compartment.Graph import Graph<br>
+                  from compartment.Model import Model<br>
+                  from executor.Executor import Executor<br>
+                  from compartment.Descriptor import vertical_divide<br>
+                  from compartment.Transfer import init_compartment, set_path_exp, set_path_parameters<br>
+                  from visual.visual_graph import visual_model<br>
                   from visual.visual_model_data import visual_compartment_values
                 </code>
             </div>
@@ -63,9 +63,9 @@
             <p>Then you will see following response:</p>
             <div class="code">
                 <code data-lang="bash">
-                  D:\softwares\python\python.exe D:/ncov/Epidemic-Modeling-survey/examples/test-copy/hello.py
-                  Welcome to LibEpidemic!
-
+                  D:\softwares\python\python.exe D:/ncov/Epidemic-Modeling-survey/examples/test-copy/hello.py<br>
+                  Welcome to LibEpidemic!<br>
+                  <br>
                   Process finished with exit code 0
                 </code>
             </div>
@@ -78,9 +78,9 @@
             <p>Here you will quickly build a SEIR model using the API provided by LibEpidemic:</p>
             <div class="code">
                 <code data-lang="python">
-                  graph = Graph('basic_SEIR', 'S')
-                  vertical_divide(graph, 'S', ['E', 'I', 'R'])
-                  model = Model('basic_SEIR', graph)
+                  graph = Graph('basic_SEIR', 'S')<br>
+                  vertical_divide(graph, 'S', ['E', 'I', 'R'])<br>
+                  model = Model('basic_SEIR', graph)<br>
                   visual_model(model)
                 </code>
             </div>
@@ -98,16 +98,16 @@
             <p>Here you need to assign a formula to each edge in the struct to implement the dynamics in the infectious disease model:</p>
             <div class="code">
                 <code data-lang="python">
-                  beta = 0.5
-                  epsilon = 0.1
-                  gamma = 0.1
-                  population = 10000
-                  set_path_exp(model, 'S', 'E', 'beta*S*I*popu')
-                  set_path_parameters(model, 'S', 'E', 'beta', beta)
-                  set_path_parameters(model, 'S', 'E', 'popu', 1.0 / population)
-                  set_path_exp(model, 'E', 'I', 'epsilon*E')
-                  set_path_parameters(model, 'E', 'I', 'epsilon', epsilon)
-                  set_path_exp(model, 'I', 'R', 'gamma*I')
+                  beta = 0.5<br>
+                  epsilon = 0.1<br>
+                  gamma = 0.1<br>
+                  population = 10000<br>
+                  set_path_exp(model, 'S', 'E', 'beta*S*I*popu')<br>
+                  set_path_parameters(model, 'S', 'E', 'beta', beta)<br>
+                  set_path_parameters(model, 'S', 'E', 'popu', 1.0 / population)<br>
+                  set_path_exp(model, 'E', 'I', 'epsilon*E')<br>
+                  set_path_parameters(model, 'E', 'I', 'epsilon', epsilon)<br>
+                  set_path_exp(model, 'I', 'R', 'gamma*I')<br>
                   set_path_parameters(model, 'I', 'R', 'gamma', gamma)
                 </code>
             </div>
@@ -122,52 +122,52 @@
             <p>A complete SEIR has been built, and you can finally use LibEpidemic's engine to execute the model and finish your work!</p>
             <div class="code">
                 <code data-lang="python">
-                  init_value = {'S': 9995, 'E': 2, 'I': 3, 'R': 0}
-                  init_compartment(model, init_value)
-                  executor = Executor(model)
-                  for index in range(5):
-                      executor.simulate_step(index)
-                      print('_______________________________________')
-                      print('day {}'.format(index + 1))
+                  init_value = {'S': 9995, 'E': 2, 'I': 3, 'R': 0}<br>
+                  init_compartment(model, init_value)<br>
+                  executor = Executor(model)<br>
+                  for index in range(5):<br>
+                      executor.simulate_step(index)<br>
+                      print('_______________________________________')<br>
+                      print('day {}'.format(index + 1))<br>
                       visual_compartment_values(model)
                 </code>
             </div>
             <p>If things go well, you’ll get the following results from standard output:</p>
             <div class="code">
                 <code data-lang="bash">
-                  D:\softwares\python\python.exe D:/ncov/Epidemic-Modeling-survey/examples/test-copy/exec.py
-                  _______________________________________
-                  day 1
-                  S : 9993.50075
-                  E : 3.29925
-                  I : 2.9000000000000004
-                  R : 0.30000000000000004
-                  _______________________________________
-                  day 2
-                  S : 9992.05169239125
-                  E : 4.41838260875
-                  I : 2.9399250000000006
-                  R : 0.5900000000000001
-                  _______________________________________
-                  day 3
-                  S : 9990.58289826266
-                  E : 5.445338476462667
-                  I : 3.0877707608750007
-                  R : 0.8839925000000002
-                  _______________________________________
-                  day 4
-                  S : 9989.040466774793
-                  E : 6.443236116684064
-                  I : 3.3235275324337676
-                  R : 1.1927695760875003
-                  _______________________________________
-                  day 5
-                  S : 9987.380524224098
-                  E : 7.4588550557117115
-                  I : 3.6354983908587974
-                  R : 1.525122329330877
-
-                  Process finished with exit code 0
+                  D:\softwares\python\python.exe D:/ncov/Epidemic-Modeling-survey/examples/test-copy/exec.py<br>
+                  _______________________________________<br>
+                  day 1<br>
+                  S : 9993.50075<br>
+                  E : 3.29925<br>
+                  I : 2.9000000000000004<br>
+                  R : 0.30000000000000004<br>
+                  _______________________________________<br>
+                  day 2<br>
+                  S : 9992.05169239125<br>
+                  E : 4.41838260875<br>
+                  I : 2.9399250000000006<br>
+                  R : 0.5900000000000001<br>
+                  _______________________________________<br>
+                  day 3<br>
+                  S : 9990.58289826266<br>
+                  E : 5.445338476462667<br>
+                  I : 3.0877707608750007<br>
+                  R : 0.8839925000000002<br>
+                  _______________________________________<br>
+                  day 4<br>
+                  S : 9989.040466774793<br>
+                  E : 6.443236116684064<br>
+                  I : 3.3235275324337676<br>
+                  R : 1.1927695760875003<br>
+                  _______________________________________<br>
+                  day 5<br>
+                  S : 9987.380524224098<br>
+                  E : 7.4588550557117115<br>
+                  I : 3.6354983908587974<br>
+                  R : 1.525122329330877<br>
+                  <br>
+                  Process finished with exit code 0<br>
                 </code>
             </div>
             <p>This concludes LibEpidemic’s Quick Start, you can find the complete code above at examples/test-copy/exec.py. You can further experience LibEpidemic by changing the parameter values inside!</p>

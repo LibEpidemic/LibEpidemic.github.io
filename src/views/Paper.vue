@@ -2,21 +2,45 @@
   <div class="container">
     <div class="header">
       <div style="padding-top: 20px;color: white;">
-        <p style="margin: 20px 0 30px 130px; font-size: 60px">Paper</p>
+        <p style="margin: 20px 0 30px 130px; font-size: 60px">Project</p>
         <p style="margin: 0px 0 20px 130px; font-size: 30px">
-          This page provides the related papers of LibEpidemic.
+          This page introduce the EpiModeling project supported by LibEpidemic.
         </p>
       </div>
     </div>
     <div class="content">
         <div>
-            <p>
-                <a-button type="link" class="title" @click="toPaperDetail('LibEpidemic-An-Open-Library-For-Traffic-Prediction')">LibEpidemic: An Open Library for Traffic Prediction</a-button>
-            </p>
-            <p>Jingyuan Wang, Jiawei Jiang, Wenjun Jiang, Chao Li, Wayne Xin Zhao<br>
-            <b><i>In Proceedings of the 29th International Conference on Advances in Geographic Information Systems (SIGSPATIAL'21)</i></b>.</p>
-            <p><b>Abstract</b>: With the increase of traffic prediction models, there has become an urgent need to develop a standardized framework to implement and evaluate these methods. This paper presents LibEpidemic, a unified, comprehensive, and extensible library for traffic prediction, which provides researchers with a credible experimental tool and a convenient development framework. In this library, we reproduce 42 traffic prediction models and collect 29 spatial-temporal datasets, which allows researchers to conduct comprehensive experiments in a convenient way. To accelerate the development of new models, we design unified model interfaces based on unified data formats, which effectively encapsulate the details of the implementation. To verify the effectiveness of our implementations, we also report the reproducibility comparison results of LibEpidemic, and set up a performance leaderboard for the four kinds of traffic prediction tasks. Our library will contribute to the standardization and reproducibility in the field of traffic prediction. The open source link of LibEpidemic is https://github.com/Bigscity-epidemic/Epidemic-Modeling-survey.</p>
-            <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), rgb(103, 179, 241), rgb(103, 179, 241));"></a-divider>
+          <div style="width: 60%; margin: 10px auto 20px auto; text-align: center">
+            <img
+              src="../assets/img/sti.png"
+              alt="toolkit"
+              height="400"
+            />
+          </div>
+          <p>LibEpidemic is an open source modeling framework, built in python, designed to help researchers, epidemiologists, teachers, and students whose research and learn related to infectious disease modeling.</p>
+          <p>We provide a complete modeling engine for building warehouse models of any shape, complete parameter configuration and reloading mechanisms to implement dynamic parameters, and even meta-population models. Through this unified engine, researchers can quickly and easily build their own infectious disease models, focusing more on solving epidemiological problems and designing experiments rather than writing low-level code.</p>
+          <div style="width: 80%; margin: 10px auto 20px auto; text-align: center">
+            <img
+              src="../assets/img/paper2.png"
+              alt="toolkit"
+              height="550"
+            />
+          </div>
+          <p>In order to achieve the above goals, LibEpidemic has built an engine-model-application three-level framework, which provides users with different levels of freedom and support for different purposes. Their functions are:</p>
+          <ul>
+              <li>engine: build any model with any parameters, learn everything in LibEpidemic</li>
+              <li>model: build specific model with any parameters or settings, learn upper APi in LibEpidemic</li>
+              <li>applications: use NPI or MedRes model to solve epidemiological problem, learn basic grammar of python is enough!</li>
+            </ul>
+          <p>Also, this open source framework has also received project support and design guidance from BRICS, Beihang University and other organizations or universities. Support are provided directly or indirectly from:</p>
+          <div style="width: 50%; margin: 10px auto 20px auto; text-align: center">
+            <img
+              src="../assets/img/support.png"
+              alt="toolkit"
+              height="300"
+            />
+          </div>
+        <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), rgb(103, 179, 241), rgb(103, 179, 241));"></a-divider>
             <br>
         </div>
     </div>

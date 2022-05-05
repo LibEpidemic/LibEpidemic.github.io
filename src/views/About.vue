@@ -26,9 +26,9 @@
             <p></p>
             <br> -->
 
-            <p class="title">Cite</p>
+            <p class="title">Pull Request</p>
             <a-divider style="margin: 10px 0; background-image: linear-gradient(to right,  rgb(103, 179, 241),  rgb(103, 179, 241), #f6f6f6, #f6f6f6);"></a-divider>
-            <p>If you find LibEpidemic useful for your research or development, please cite our <a href="https://dl.acm.org/doi/10.1145/3474717.3483923" target="_blank">paper</a>.</p>
+            <p>If you find LibEpidemic useful for your research or development, please visit our <a href="https://github.com/Bigscity-epidemic/Epidemic-Modeling-survey" target="_blank">Github repo</a>.</p>
         </div>
     </div>
   </div>

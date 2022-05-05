@@ -22,7 +22,7 @@
         <div class="pcard">
             <a-card title="Platform" :bordered="true" style="border-radius: 5px">
                 <p style="margin-bottom: 0px; height: 120px">This website provides the docs, introduction and examples of using LibEpidemic.</p>
-                <a-button style="padding-left: 180px; margin-top: 5px; font-size: 15px;" type="link"><a href="https://libepidemic-docs.readthedocs.io/en/latest" target="_blank">See More >></a></a-button>
+                <a-button style="padding-left: 180px; margin-top: 5px; font-size: 15px;" type="link"><a href="https://covid19-report.com/" target="_blank">See More >></a></a-button>
             </a-card>
         </div>
       </a-col>

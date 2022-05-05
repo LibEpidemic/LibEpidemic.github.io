@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header">
       <div style="padding-top: 20px;color: white;">
-        <p style="margin: 20px 0 30px 130px; font-size: 60px">Data</p>
+        <p style="margin: 20px 0 30px 130px; font-size: 60px">Structure</p>
         <p style="margin: 0px 0 20px 130px; font-size: 30px">
           LibEpidemic provides 35 spatio-temporal datasets and introduces unified <br> 
           data structures to format representations of datas and the input of algorithms.

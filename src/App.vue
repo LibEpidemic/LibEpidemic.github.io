@@ -124,9 +124,9 @@
         <a-menu-item
           key="8"
           style="width: 85px; font-size: 20px; textalign: center"
-          @click="menuItemClick('Tutorial')"
+          @click="menuItemClick('Paper')"
         >
-          Tutorial
+          Project
         </a-menu-item>
 
         <a-menu-item
